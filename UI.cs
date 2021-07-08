@@ -229,15 +229,26 @@ namespace CivSem1Challenge2_CarSystem
                 System.Console.WriteLine ("Invalid, enter again");
             }
 
+            Car add = new Car(rego, make, model, yom);
             //TODO: create and add the new car to the this.Cars list
 
             System.Console.Write("Enter car dealer id to add the car to: ");
             while(!int.TryParse(Console.ReadLine(), out dealerId)) {
                 System.Console.WriteLine("Invalid, enter again");
             }
+            
+            var listing = new Listing(rego, make, model, yom, cost, price);
+            
+            List<CarDealer> dealerList; 
+            for (int i = 0; i < CarDealers.Count; i++) {
+                CarDealer c = CarDealers[i];
+                if (dealerId == c.DealerId) {
+                    c.Listings.Add (listing);
+                    break; 
+                }
+            }
 
-
-
+            
             //TODO: add the car as a listing to the desired car dealer in this.CarDealers.  
             //      If the dealer doesn't exist let the user know and go back to the main menu.
             // -----------------------
