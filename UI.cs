@@ -85,7 +85,7 @@ namespace CivSem1Challenge2_CarSystem
 
                 case "5":
                     //TODO: Print the total cost of listings in car dealers.  Not all of the cars are in a delear that is in the CarDealers list
-                    numCars = this.GetTotalCostCarDealers();
+                    numCars = this.GetTotalCarsInCarDealers();
                     System.Console.WriteLine($"There are a total of {numCars} in the car dealers");
                     break;
 
@@ -147,9 +147,13 @@ namespace CivSem1Challenge2_CarSystem
         }
 
         //TODO: complete for menu item 5.
-        private int GetTotalCostCarDealers()
+        private int GetTotalCarsInCarDealers()
         {
-            return 0;
+            int x = 0;
+            foreach(var i in CarDealers){
+                x = x + i.Listings.Count;
+            }
+            return x;
         }
 
 
