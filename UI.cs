@@ -80,6 +80,7 @@ namespace CivSem1Challenge2_CarSystem
                 case "4":
                     //TODO: Print the amount of cars in the system
                     // Create and call a method/function named GetNumCars() to do this.
+                    System.Console.WriteLine(GetNumCars());
                     break;
 
                 case "5":
@@ -153,12 +154,23 @@ namespace CivSem1Challenge2_CarSystem
 
 
         //TODO: create the GetNumCars() method/function here
-
+        private int GetNumCars()
+        {
+            int x = Cars.Count;
+            return x;
+        }
 
         //---------------------
 
         private string GetCarDetails(string rego)
         {
+            foreach(var i in Cars){
+                if(i.Registration == rego){
+                    string x = i.GetDetails();
+                    return x;
+                }
+            }
+            
             //TODO: write code find the relevant car in this.Cars and return the car's details
             // should use the method GetDetails() from Car
             return null;
